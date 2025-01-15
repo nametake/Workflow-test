@@ -19,7 +19,7 @@ jobs:
         n: ["1", "2"]
     concurrency:
       group: ${{ github.workflow }}-job2-${{ matrix.n }}
-      cancel-in-progress: false
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
