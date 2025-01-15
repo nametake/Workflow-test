@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-go@v5
       - run: go version
   job2:
-    needs: deploy-server-jobs-targets
+    needs: job2
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
