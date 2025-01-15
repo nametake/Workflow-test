@@ -14,6 +14,9 @@ jobs:
       - run: go version
   job2:
     needs: job1
+    strategy:
+      matrix:
+        os: ["1", "2"]
     concurrency:
       group: ${{ github.workflow }}-job2
       cancel-in-progress: false
