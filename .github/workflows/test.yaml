@@ -16,9 +16,9 @@ jobs:
     needs: job1
     strategy:
       matrix:
-        os: ["1", "2"]
+        n: ["1", "2"]
     concurrency:
-      group: ${{ github.workflow }}-job2
+      group: ${{ github.workflow }}-job2-${{ matrix.n }}
       cancel-in-progress: false
     runs-on: ubuntu-latest
     steps:
