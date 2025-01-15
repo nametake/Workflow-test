@@ -1,5 +1,3 @@
 # Workflow-test
 
 a
-
-b
