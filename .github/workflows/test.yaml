@@ -4,7 +4,7 @@ on:
   push:
 concurrency:
   group: ${{ github.workflow }}
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   job1:
     runs-on: ubuntu-latest
