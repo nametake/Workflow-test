@@ -2,11 +2,11 @@
 name: Test
 on:
   push:
-concurrency:
-  group: ${{ github.workflow }}
-  cancel-in-progress: false
 jobs:
   job1:
+    concurrency:
+      group: ${{ github.workflow }}-job1
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,8 +14,14 @@ jobs:
       - run: go version
   job2:
     needs: job1
+    strategy:
+      matrix:
+        n: ["1", "2"]
+    concurrency:
+      group: ${{ github.workflow }}-job2-${{ matrix.n }}
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-go@v5
-      - run: go version
+      - run: sleep 60
