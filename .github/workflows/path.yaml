@@ -3,7 +3,7 @@ name: Paths
 on:
   push:
     paths:
-      - test/test.txt
+      - "test/test.txt"
 jobs:
   job1:
     runs-on: ubuntu-latest
