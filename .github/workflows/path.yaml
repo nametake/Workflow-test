@@ -1,0 +1,13 @@
+---
+name: Paths
+on:
+  push:
+    paths:
+      - test/test.txt
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+      - run: go version
