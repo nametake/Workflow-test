@@ -3,6 +3,7 @@ name: Paths
 on:
   push:
     paths:
+      - "./github/workflows/test.yaml"
       - "test/test.txt"
 jobs:
   job1:
